@@ -1,6 +1,25 @@
+import random
 MAX_LINES = 3
 MAX_BET=100
 MIN_BET =1 
+
+ROWS=3
+COLS=3
+
+symbols={
+    "A":2,"B":3,"C":4,"D":5 , "E":6
+}
+
+def slot_machine(ROWS,COLS,symbol):
+    All_Symbols=[]
+    for key,value in symbols.items:
+        for i in range(value):
+            All_Symbols.append(key)
+    print(All_Symbols)
+    
+    for COLS in range:
+
+
 def deposit():
     while True:
         amount = input("Please enter the amount you wish to deposit: $ ")
@@ -38,11 +57,17 @@ def place_bet():
             print("Enter a valid number ")  
     return amount              
 def main():
-    deposit_amount = deposit()
-    num_lines = get_lines()
+    balance = deposit()
+    line = get_lines()
     bet=place_bet()
-    print(f"Deposit amount: ${deposit_amount}")
-    print(f"Number of lines: {num_lines}")
+    print(f"Deposit amount: ${balance}")
+    print(f"Number of lines: {line}")
     print(f"Bet Placed : ${bet}")
-
+    
+    while True:
+        if(bet>balance):
+            print(f"yOu don not have sufficient balance,Your current balance is {balance}")
+        else:
+            break    
+    print(f"You are betting ${bet} on {line} lines. Your total bet will be {bet*line}")        
 main()
