@@ -18,6 +18,7 @@ def slot_machine(ROWS,COLS,symbol):
     print(All_Symbols)
     
     for COLS in range:
+        pass
 
 
 def deposit():
