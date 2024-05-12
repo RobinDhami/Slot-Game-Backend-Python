@@ -1,25 +1,25 @@
 import random
+
 MAX_LINES = 3
-MAX_BET=100
-MIN_BET =1 
+MAX_BET = 100
+MIN_BET = 1
 
-ROWS=3
-COLS=3
+ROWS = 3
+COLS = 3
 
-symbols={
-    "A":2,"B":3,"C":4,"D":5 , "E":6
+symbols = {
+    "A": 2, "B": 3, "C": 4, "D": 5, "E": 6
 }
 
-def slot_machine(ROWS,COLS,symbol):
-    All_Symbols=[]
-    for key,value in symbols.items:
+def slot_machine(ROWS, COLS, symbol):
+    All_Symbols = []
+    for key, value in symbols.items():
         for i in range(value):
             All_Symbols.append(key)
     print(All_Symbols)
-    
-    for COLS in range:
-        pass
 
+    for COL in range(COLS):
+        pass
 
 def deposit():
     while True:
@@ -46,29 +46,32 @@ def get_lines():
             print("Please enter a whole number for the lines you want to bet.")
 
 def place_bet():
-    amount = input("Enter the bet you want to place ")
     while True:
+        amount = input("Enter the bet you want to place: ")
         if amount.isdigit():
-            amount=int(amount)
+            amount = int(amount)
             if MIN_BET <= amount <= MAX_BET:
-                break
+                return amount
             else:
-                print(f" Enter a bet between {MIN_BET} to {MAX_BET}")
+                print(f"Enter a bet between {MIN_BET} to {MAX_BET}")
         else:
-            print("Enter a valid number ")  
-    return amount              
+            print("Enter a valid number.")
+
 def main():
     balance = deposit()
-    line = get_lines()
-    bet=place_bet()
+    lines = get_lines()
+    bet = place_bet()
     print(f"Deposit amount: ${balance}")
-    print(f"Number of lines: {line}")
-    print(f"Bet Placed : ${bet}")
-    
+    print(f"Number of lines: {lines}")
+    print(f"Bet Placed: ${bet}")
+
     while True:
-        if(bet>balance):
-            print(f"yOu don not have sufficient balance,Your current balance is {balance}")
+        if bet > balance:
+            print(f"You do not have sufficient balance, Your current balance is {balance}")
+            bet = place_bet()
         else:
-            break    
-    print(f"You are betting ${bet} on {line} lines. Your total bet will be {bet*line}")        
+            break
+
+    print(f"You are betting ${bet} on {lines} lines. Your total bet will be {bet * lines}")
+
 main()
