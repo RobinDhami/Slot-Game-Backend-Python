@@ -28,6 +28,19 @@ def slot_machine(ROWS, COLS, symbol):
             columns.append(value)
         columns.append(columns)
     return columns
+
+def print_col(columns):
+    for row in range(len(columns[0])):
+        for i,col in enumerate(columns):
+            if i!=len(columns)-1:
+                print(col[row],"|")
+            else:
+                print(col[row])
+
+
+
+
+
 def deposit():
     while True:
         amount = input("Please enter the amount you wish to deposit: $ ")
@@ -68,6 +81,7 @@ def main():
     balance = deposit()
     lines = get_lines()
     bet = place_bet()
+
     print(f"Deposit amount: ${balance}")
     print(f"Number of lines: {lines}")
     print(f"Bet Placed: ${bet}")
@@ -80,5 +94,6 @@ def main():
             break
 
     print(f"You are betting ${bet} on {lines} lines. Your total bet will be {bet * lines}")
-
+    slots = slot_machine(ROWS,COLS,symbols)
+    print_col(slots)
 main()
