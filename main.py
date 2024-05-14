@@ -23,10 +23,11 @@ def slot_machine(ROWS, COLS, symbol):
         columns=[]
         current_symbols = All_Symbols.copy()
         for _ in range(ROWS):
-            value = random.choice(All_Symbols)
+            value = random.choice(current_symbols)
             current_symbols.remove(value)
-    columns.append(value)
-
+            columns.append(value)
+        columns.append(columns)
+    return columns
 def deposit():
     while True:
         amount = input("Please enter the amount you wish to deposit: $ ")
