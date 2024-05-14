@@ -17,9 +17,15 @@ def slot_machine(ROWS, COLS, symbol):
         for i in range(value):
             All_Symbols.append(key)
     print(All_Symbols)
-
-    for COL in range(COLS):
-        pass
+    
+    columns=[]
+    for _ in range(COLS):
+        columns=[]
+        current_symbols = All_Symbols.copy()
+        for _ in range(ROWS):
+            value = random.choice(All_Symbols)
+            current_symbols.remove(value)
+    columns.append(value)
 
 def deposit():
     while True:
